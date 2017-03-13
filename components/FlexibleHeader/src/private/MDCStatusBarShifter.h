@@ -58,6 +58,7 @@
 
 @property(nonatomic, weak) id<MDCStatusBarShifterDelegate> delegate;
 
+#if !TARGET_OS_TV
 #pragma mark Introspection
 
 /**
@@ -84,6 +85,7 @@
 
 /** Must be called when the owning UIViewController's interface orientation has changed. */
 - (void)interfaceOrientationDidChange;
+#endif // #if !TARGET_OS_TV
 
 @end
 

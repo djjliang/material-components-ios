@@ -506,17 +506,30 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
 #pragma mark Logical short forms
 
 - (BOOL)fhv_shouldAllowShifting {
+#if TARGET_OS_TV
+  return NO;
+#else
   return self.hidesStatusBarWhenCollapsed && self.statusBarHintCanOverlapHeader;
+#endif
 }
 
 - (BOOL)fhv_shouldCollapseToStatusBar {
+#if TARGET_OS_TV
+  return YES;
+#else
   return !self.hidesStatusBarWhenCollapsed && self.statusBarHintCanOverlapHeader;
+#endif
 }
 
 - (BOOL)fhv_canShiftOffscreen {
+#if TARGET_OS_TV
+  return (_shiftBehavior == MDCFlexibleHeaderShiftBehaviorEnabled ||
+          _shiftBehavior == MDCFlexibleHeaderShiftBehaviorEnabledWithStatusBar);
+#else
   return ((_shiftBehavior == MDCFlexibleHeaderShiftBehaviorEnabled ||
            _shiftBehavior == MDCFlexibleHeaderShiftBehaviorEnabledWithStatusBar) &&
           !_trackingScrollView.pagingEnabled);
+#endif
 }
 
 - (BOOL)fhv_isPartiallyShifted {
@@ -665,6 +678,8 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   CGFloat boundedAccumulator = MIN([self fhv_accumulatorMax], _shiftAccumulator);
 
   CGFloat shadowIntensity;
+
+#if !TARGET_OS_TV
   if (self.hidesStatusBarWhenCollapsed) {
     // Calculate the desired shadow strength for the offset & accumulator and then take the
     // weakest strength.
@@ -680,7 +695,9 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
       shadowIntensity = MAX(0, MIN(1, MIN(accumulator, frameBottomEdge) / kShadowScaleLength));
     }
 
-  } else if (self.isInFrontOfInfiniteContent) {
+  } else
+#endif // #if !TARGET_OS_TV
+  /* else */ if (self.isInFrontOfInfiniteContent) {
     shadowIntensity = 1;
 
   } else {
@@ -993,6 +1010,7 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   }
 }
 
+#if !TARGET_OS_TV
 - (BOOL)prefersStatusBarHidden {
   return _statusBarShifter.prefersStatusBarHidden;
 }
@@ -1012,6 +1030,7 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
 
   [self fhv_startDisplayLink];
 }
+#endif // #if !TARGET_OS_TV
 
 - (void)setShiftBehavior:(MDCFlexibleHeaderShiftBehavior)shiftBehavior {
   shiftBehavior = ShiftBehaviorForCurrentAppContext(shiftBehavior);
@@ -1052,6 +1071,7 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   _contentInsetsAreChanging = NO;
 }
 
+#if !TARGET_OS_TV
 - (void)interfaceOrientationWillChange {
   NSAssert(!_interfaceOrientationIsChanging, @"Call to %@::%@ not matched by a call to %@.",
            NSStringFromClass([self class]), NSStringFromSelector(_cmd),
@@ -1094,6 +1114,7 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
         [self interfaceOrientationDidChange];
       }];
 }
+#endif // #if !TARGET_OS_TV
 
 - (void)forwardTouchEventsForView:(UIView *)view {
   [_forwardingViews addObject:view];

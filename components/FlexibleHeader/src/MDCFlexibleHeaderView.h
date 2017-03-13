@@ -177,6 +177,7 @@ IB_DESIGNABLE
 // All of these UIKit hooks must be called from the view controller that owns this header view.
 // Failure to do so will result in undefined behavior of the flexible header view.
 
+#if !TARGET_OS_TV
 /**
  Returns a Boolean value indicating whether the status bar should be visible.
 
@@ -217,6 +218,7 @@ IB_DESIGNABLE
  */
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator;
+#endif // #if !TARGET_OS_TV
 
 #pragma mark Changing Content Insets
 

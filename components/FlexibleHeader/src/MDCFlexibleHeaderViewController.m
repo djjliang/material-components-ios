@@ -20,6 +20,7 @@
 #import "MDCFlexibleHeaderView.h"
 #import "MDFTextAccessibility.h"
 
+#if !TARGET_OS_TV
 static inline BOOL ShouldUseLightStatusBarOnBackgroundColor(UIColor *color) {
   if (CGColorGetAlpha(color.CGColor) < 1) {
     return NO;
@@ -31,6 +32,7 @@ static inline BOOL ShouldUseLightStatusBarOnBackgroundColor(UIColor *color) {
                  passesOnBackgroundColor:color
                                  options:MDFTextAccessibilityOptionsNone];
 }
+#endif // #if !TARGET_OS_TV
 
 static NSString *const MDCFlexibleHeaderViewControllerHeaderViewKey =
     @"MDCFlexibleHeaderViewControllerHeaderViewKey";
@@ -144,6 +146,7 @@ static NSString *const MDCFlexibleHeaderViewControllerLayoutDelegateKey =
 #endif
 }
 
+#if !TARGET_OS_TV
 - (UIStatusBarStyle)preferredStatusBarStyle {
   return (ShouldUseLightStatusBarOnBackgroundColor(_headerView.backgroundColor)
               ? UIStatusBarStyleLightContent
@@ -188,6 +191,7 @@ static NSString *const MDCFlexibleHeaderViewControllerLayoutDelegateKey =
   }
 }
 #endif  // #if !defined(__IPHONE_8_0) || (__IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0)
+#endif // #if !TARGET_OS_TV
 
 #pragma mark - UIScrollViewDelegate
 
@@ -232,7 +236,9 @@ static NSString *const MDCFlexibleHeaderViewControllerLayoutDelegateKey =
 #pragma mark MDCFlexibleHeaderViewDelegate
 
 - (void)flexibleHeaderViewNeedsStatusBarAppearanceUpdate:(MDCFlexibleHeaderView *)headerView {
+#if !TARGET_OS_TV
   [self setNeedsStatusBarAppearanceUpdate];
+#endif
 }
 
 - (void)flexibleHeaderViewFrameDidChange:(MDCFlexibleHeaderView *)headerView {

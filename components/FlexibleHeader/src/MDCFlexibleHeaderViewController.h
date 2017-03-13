@@ -46,6 +46,7 @@
 
 #pragma mark UIViewController methods
 
+#if !TARGET_OS_TV
 /**
  Returns a Boolean indicating whether the status bar should be hidden or not.
 
@@ -61,6 +62,7 @@
  UIStatusBarStyleDefault.
  */
 - (UIStatusBarStyle)preferredStatusBarStyle;
+#endif // #if !TARGET_OS_TV
 
 /**
  Updates the topLayoutGuide to the correct position of a view controller paired with an instance of

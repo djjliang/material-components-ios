@@ -201,9 +201,11 @@ typedef NS_ENUM(NSInteger, MDCStatusBarShifterState) {
 #pragma mark - Public
 
 - (void)setOffset:(CGFloat)offset {
+#if !TARGET_OS_TV
   if (![self canUpdateStatusBarFrame]) {
     return;
   }
+#endif
 
   // Bound the status bar range to [0...kStatusBarExpectedHeight].
   CGFloat statusOffsetY = MIN(kStatusBarExpectedHeight, offset);
@@ -241,6 +243,7 @@ typedef NS_ENUM(NSInteger, MDCStatusBarShifterState) {
   }
 }
 
+#if !TARGET_OS_TV
 - (BOOL)canUpdateStatusBarFrame {
   CGRect statusBarFrame = [[UIApplication mdc_safeSharedApplication] statusBarFrame];
   CGFloat statusBarHeight = MIN(statusBarFrame.size.width, statusBarFrame.size.height);
@@ -259,5 +262,6 @@ typedef NS_ENUM(NSInteger, MDCStatusBarShifterState) {
 - (void)interfaceOrientationDidChange {
   _statusBarReplicaView.hidden = NO;
 }
+#endif // #if !TARGET_OS_TV
 
 @end

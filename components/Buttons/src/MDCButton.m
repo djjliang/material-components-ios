@@ -229,7 +229,10 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
   // Disable default highlight state.
   self.adjustsImageWhenHighlighted = NO;
+
+#if !TARGET_OS_TV
   self.showsTouchWhenHighlighted = NO;
+#endif
 
   // Set up title label attributes.
   self.titleLabel.font = [MDCTypography buttonFont];
@@ -257,8 +260,10 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
                 action:@selector(touchDragExit:forEvent:)
       forControlEvents:UIControlEventTouchDragExit];
 
+#if !TARGET_OS_TV
   // Block users from activating multiple buttons simultaneously by default.
   self.exclusiveTouch = YES;
+#endif
 
   // Default background colors.
   [self setBackgroundColor:MDCColorFromRGB(MDCButtonDefaultBackgroundColor)
@@ -705,7 +710,6 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 - (void)contentSizeCategoryDidChange:(NSNotification *)notification {
   UIFont *font = [UIFont mdc_preferredFontForMaterialTextStyle:MDCFontTextStyleButton];
   self.titleLabel.font = font;
-  [self sizeToFit];
 }
 
 #pragma mark - Deprecations
