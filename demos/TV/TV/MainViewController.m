@@ -1,4 +1,4 @@
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@implementation ViewController
+@implementation MainViewController
 @end

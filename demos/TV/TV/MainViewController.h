@@ -1,5 +1,5 @@
 #import "MaterialCollections.h"
 
-@interface ViewController : MDCCollectionViewController
+@interface MainViewController : MDCCollectionViewController
 @end
 
