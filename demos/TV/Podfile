@@ -1,17 +1,5 @@
-platform :tvos, '9.0'
-
 target 'TV' do
   # Pods for TV app
-  pod 'MaterialComponents/CollectionCells', :path => '../..'
-  pod 'MaterialComponents/CollectionLayoutAttributes', :path => '../..'
-  pod 'MaterialComponents/Collections', :path => '../..'
-  pod 'MaterialComponents/PageControl', :path => '../..'
-  pod 'MaterialComponents/Palettes', :path => '../..'
-  pod 'MaterialComponents/ProgressView', :path => '../..'
-  pod 'MaterialComponents/ShadowElevations', :path => '../..'
-  pod 'MaterialComponents/ShadowLayer', :path => '../..'
-  pod 'MaterialComponents/Slider', :path => '../..'
-  pod 'MaterialComponents/Tabs', :path => '../..'
-  pod 'MaterialComponents/Typography', :path => '../..'
-
+  pod 'MaterialComponents', :path => '../../'
+  pod 'MDFTextAccessibility', :path => '../../../material-text-accessibility-ios/'
 end

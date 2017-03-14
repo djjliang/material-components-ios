@@ -2,4 +2,3 @@
 
 @interface MainViewController : MDCCollectionViewController
 @end
-

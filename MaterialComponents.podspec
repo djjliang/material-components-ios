@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
     ss.ios.deployment_target = '8.0'
     ss.tvos.deployment_target = '9.0'
     ss.public_header_files = "components/#{ss.base_name}/src/*.h"
-    ss.source_files = "components/#{ss.base_name}/src/*.{h,m}"
+    ss.source_files = "components/#{ss.base_name}/src/*.{h,m}", "components/#{ss.base_name}/src/private/*.{h,m}"
 
     # Navigation bar contents
     ss.dependency "MaterialComponents/HeaderStackView"
@@ -89,6 +89,7 @@ Pod::Spec.new do |s|
 
   s.subspec "ButtonBar" do |ss|
     ss.ios.deployment_target = '8.0'
+    ss.tvos.deployment_target = '8.0'
     ss.public_header_files = "components/#{ss.base_name}/src/*.h"
     ss.source_files = "components/#{ss.base_name}/src/*.{h,m}", "components/#{ss.base_name}/src/private/*.{h,m}"
 
