@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		7046A6681E77198A003381B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046A6671E77198A003381B4 /* main.m */; };
 		7046A66B1E77198A003381B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046A66A1E77198A003381B4 /* AppDelegate.m */; };
-		7046A66E1E77198A003381B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046A66D1E77198A003381B4 /* ViewController.m */; };
-		7046A6711E77198A003381B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7046A66F1E77198A003381B4 /* Main.storyboard */; };
+		7046A66E1E77198A003381B4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046A66D1E77198A003381B4 /* MainViewController.m */; };
 		7046A6731E77198A003381B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7046A6721E77198A003381B4 /* Assets.xcassets */; };
 		F186F3F8A768F2F1625F2D68 /* libPods-TV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541F85D44DE18C02CB41BD23 /* libPods-TV.a */; };
 /* End PBXBuildFile section */
@@ -22,9 +21,8 @@
 		7046A6671E77198A003381B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7046A6691E77198A003381B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7046A66A1E77198A003381B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7046A66C1E77198A003381B4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7046A66D1E77198A003381B4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7046A6701E77198A003381B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7046A66C1E77198A003381B4 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		7046A66D1E77198A003381B4 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		7046A6721E77198A003381B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7046A6741E77198A003381B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C29129F6AF539A92E4BAB4A /* Pods-TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TV/Pods-TV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,9 +63,8 @@
 			children = (
 				7046A6691E77198A003381B4 /* AppDelegate.h */,
 				7046A66A1E77198A003381B4 /* AppDelegate.m */,
-				7046A66C1E77198A003381B4 /* ViewController.h */,
-				7046A66D1E77198A003381B4 /* ViewController.m */,
-				7046A66F1E77198A003381B4 /* Main.storyboard */,
+				7046A66C1E77198A003381B4 /* MainViewController.h */,
+				7046A66D1E77198A003381B4 /* MainViewController.m */,
 				7046A6721E77198A003381B4 /* Assets.xcassets */,
 				7046A6741E77198A003381B4 /* Info.plist */,
 				7046A6661E77198A003381B4 /* Supporting Files */,
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7046A6731E77198A003381B4 /* Assets.xcassets in Resources */,
-				7046A6711E77198A003381B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,24 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7046A66E1E77198A003381B4 /* ViewController.m in Sources */,
+				7046A66E1E77198A003381B4 /* MainViewController.m in Sources */,
 				7046A66B1E77198A003381B4 /* AppDelegate.m in Sources */,
 				7046A6681E77198A003381B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7046A66F1E77198A003381B4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7046A6701E77198A003381B4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7046A68B1E77198A003381B4 /* Debug */ = {
