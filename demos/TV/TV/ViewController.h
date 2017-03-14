@@ -1,15 +1,5 @@
-//
-//  ViewController.h
-//  TV
-//
-//  Created by Dennis Liang on 3/13/17.
-//
-//
+#import "MaterialCollections.h"
 
-#import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
-
+@interface ViewController : MDCCollectionViewController
 @end
 
