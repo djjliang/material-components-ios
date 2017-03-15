@@ -23,7 +23,7 @@
 #import "MaterialRTL.h"
 #import "MaterialIcons+ic_arrow_back.h"
 
-@implementation MDCAppBarViewController
+@implementation MDCAppBarViewController (iOS)
 
 - (UIBarButtonItem *)backButtonItem {
   UIViewController *fhvParent = self.flexibleHeaderParentViewController;
@@ -76,6 +76,17 @@
   }
   backBarButtonItem.accessibilityIdentifier = @"back_bar_button";
   return backBarButtonItem;
+}
+
+#pragma mark User actions
+
+- (void)didTapBackButton:(id)sender {
+  UIViewController *pvc = self.flexibleHeaderParentViewController;
+  if (pvc.navigationController && pvc.navigationController.viewControllers.count > 1) {
+    [pvc.navigationController popViewControllerAnimated:YES];
+  } else {
+    [pvc dismissViewControllerAnimated:YES completion:nil];
+  }
 }
 
 @end

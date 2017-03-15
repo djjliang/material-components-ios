@@ -51,7 +51,7 @@
   Tracking view that adds a shadow under the presented view. This view's frame should always match
   the presented view's.
 */
-@property(nonatomic) UIView *trackingView;
+@property(nonatomic, readonly, nonnull) UIView *trackingView;
 
 
 /**

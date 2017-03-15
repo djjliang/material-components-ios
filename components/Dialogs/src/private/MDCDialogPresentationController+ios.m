@@ -19,7 +19,7 @@
 
 #import "MaterialKeyboardWatcher.h"
 
-@implementation MDCDialogPresentationController
+@implementation MDCDialogPresentationController (iOS)
 
 #pragma mark - Keyboard handling
 
